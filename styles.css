@@ -1,0 +1,362 @@
+/* Global Styles */
+:root {
+    --primary-color: #0e0e0e;
+    --secondary-color: #181818;
+    --accent-color: #ff3b3b;
+    --text-color: #f0f0f0;
+    --text-secondary: #7a7a7a;
+    --grid-color: rgba(30, 215, 96, 0.05);
+    --border-color: rgba(255, 59, 59, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.emphasis {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+section {
+    padding: 80px 0;
+}
+
+.dark-section {
+    background-color: var(--secondary-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.section-line {
+    height: 1px;
+    background-color: var(--accent-color);
+    width: 60px;
+    margin: 0 20px;
+}
+
+/* Header and Navigation */
+header {
+    height: 100vh;
+    background-color: var(--primary-color);
+    background-image: 
+        linear-gradient(to bottom, rgba(14, 14, 14, 0.8), rgba(14, 14, 14, 0.9)),
+        url('https://source.unsplash.com/random/1920x1080/?military,technology');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    letter-spacing: 3px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.hero {
+    height: calc(100vh - 81px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.hero-line {
+    height: 1px;
+    width: 80px;
+    background-color: var(--accent-color);
+    margin: 0 auto 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--accent-color);
+    padding: 12px 30px;
+    border: 1px solid var(--accent-color);
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* About Section */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+/* Services Section */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    position: relative;
+    border-left: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-number {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    opacity: 0.5;
+    font-weight: 700;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-row {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.form-row input, 
+.form-row textarea {
+    flex: 1;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.submit-button {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 12px 30px;
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    padding: 50px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-info {
+    text-align: center;
+}
+
+.footer-info p {
+    margin-bottom: 5px;
+}
+
+.copyright {
+    font-size: 0.7rem;
+}
+
+.footer-contact {
+    text-align: right;
+}
+
+.footer-contact p {
+    margin-bottom: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    nav {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .two-column {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-contact {
+        text-align: center;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        gap: 15px;
+    }
+}
