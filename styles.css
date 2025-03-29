@@ -296,6 +296,57 @@ nav {
     margin-bottom: 0;
 }
 
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.team-member {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.team-member-image {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.member-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, rgba(44, 194, 250, 0.1), rgba(44, 194, 250, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-member h3 {
+    padding: 20px 25px 5px;
+    color: var(--text-color);
+}
+
+.team-member-info {
+    padding: 0 25px 25px;
+}
+
+.member-background {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
 /* Contact Form */
 .contact-form {
     max-width: 800px;
@@ -406,6 +457,10 @@ footer {
     .two-column {
         grid-template-columns: 1fr;
         gap: 30px;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
     }
     
     .footer-content {
