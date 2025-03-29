@@ -1,12 +1,12 @@
 /* Global Styles */
 :root {
-    --primary-color: #0e0e0e;
-    --secondary-color: #181818;
-    --accent-color: #ff3b3b;
+    --primary-color: #0a1220;
+    --secondary-color: #0f1a2b;
+    --accent-color: #2cc2fa;
     --text-color: #f0f0f0;
-    --text-secondary: #7a7a7a;
-    --grid-color: rgba(30, 215, 96, 0.05);
-    --border-color: rgba(255, 59, 59, 0.3);
+    --text-secondary: #a0a8b5;
+    --grid-color: rgba(44, 194, 250, 0.05);
+    --border-color: rgba(44, 194, 250, 0.2);
 }
 
 * {
@@ -16,7 +16,7 @@
 }
 
 body {
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Space Grotesk', sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
@@ -33,7 +33,7 @@ body {
     background-image: 
         linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
         linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
-    background-size: 20px 20px;
+    background-size: 25px 25px;
     z-index: -1;
     pointer-events: none;
 }
@@ -45,37 +45,36 @@ body {
 }
 
 h1, h2, h3 {
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
-    text-transform: uppercase;
-    letter-spacing: 2px;
 }
 
 h1 {
     font-size: 3.5rem;
     margin-bottom: 20px;
+    letter-spacing: -1px;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-bottom: 0;
+    letter-spacing: -0.5px;
 }
 
 h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 15px;
 }
 
 p {
     margin-bottom: 20px;
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 1rem;
 }
 
 .emphasis {
     color: var(--text-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -90,26 +89,37 @@ a:hover {
 }
 
 section {
-    padding: 80px 0;
+    padding: 100px 0;
 }
 
 .dark-section {
     background-color: var(--secondary-color);
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.dark-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(44, 194, 250, 0.05), transparent 60%);
+    pointer-events: none;
 }
 
 .section-header {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
 .section-line {
     height: 1px;
     background-color: var(--accent-color);
-    width: 60px;
+    width: 40px;
     margin: 0 20px;
 }
 
@@ -118,8 +128,8 @@ header {
     height: 100vh;
     background-color: var(--primary-color);
     background-image: 
-        linear-gradient(to bottom, rgba(14, 14, 14, 0.8), rgba(14, 14, 14, 0.9)),
-        url('https://source.unsplash.com/random/1920x1080/?military,technology');
+        linear-gradient(to bottom, rgba(10, 18, 32, 0.7), rgba(10, 18, 32, 0.9)),
+        url('https://source.unsplash.com/random/1920x1080/?healthcare,technology');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -137,18 +147,33 @@ nav {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--text-color);
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 40px;
 }
 
 .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 2px;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .hero {
@@ -165,14 +190,13 @@ nav {
 }
 
 .tagline {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 30px;
-    letter-spacing: 2px;
 }
 
 .hero-line {
-    height: 1px;
+    height: 2px;
     width: 80px;
     background-color: var(--accent-color);
     margin: 0 auto 40px;
@@ -180,18 +204,19 @@ nav {
 
 .cta-button {
     display: inline-block;
-    background-color: transparent;
-    color: var(--accent-color);
-    padding: 12px 30px;
-    border: 1px solid var(--accent-color);
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 14px 32px;
+    border-radius: 4px;
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
 }
 
 .cta-button:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+    background-color: #1db3eb;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(44, 194, 250, 0.2);
 }
 
 /* About Section */
@@ -209,25 +234,66 @@ nav {
 }
 
 .service-card {
-    background-color: rgba(255, 255, 255, 0.02);
-    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 40px 30px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    border-left: 1px solid var(--border-color);
-    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background-color: var(--accent-color);
+    transition: height 0.3s ease;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-.service-number {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 1.2rem;
+.service-card:hover::after {
+    height: 100%;
+}
+
+.service-icon {
+    margin-bottom: 20px;
     color: var(--accent-color);
-    opacity: 0.5;
-    font-weight: 700;
+}
+
+/* Clients Section */
+.clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.client-logo {
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    transition: transform 0.3s ease;
+}
+
+.client-logo:hover {
+    transform: translateY(-5px);
+}
+
+.client-logo p {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 0;
 }
 
 /* Contact Form */
@@ -250,12 +316,13 @@ nav {
 input, textarea {
     width: 100%;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.02);
+    background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--border-color);
+    border-radius: 4px;
     color: var(--text-color);
-    font-family: 'Roboto Mono', monospace;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease;
 }
 
 textarea {
@@ -269,20 +336,22 @@ input:focus, textarea:focus {
 }
 
 .submit-button {
-    background-color: transparent;
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    padding: 12px 30px;
-    font-family: 'Roboto Mono', monospace;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 14px 32px;
+    border-radius: 4px;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
-    letter-spacing: 2px;
+    font-size: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .submit-button:hover {
-    background-color: var(--accent-color);
-    color: var(--primary-color);
+    background-color: #1db3eb;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(44, 194, 250, 0.2);
 }
 
 /* Footer */
@@ -307,7 +376,7 @@ footer {
 }
 
 .copyright {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
 }
 
 .footer-contact {
@@ -322,6 +391,10 @@ footer {
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
     }
     
     nav {
@@ -357,6 +430,10 @@ footer {
     }
     
     .nav-links {
-        gap: 15px;
+        gap: 20px;
+    }
+    
+    section {
+        padding: 70px 0;
     }
 }
