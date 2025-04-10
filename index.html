@@ -222,20 +222,21 @@
                 <h2>Contact Us</h2>
                 <div class="section-line"></div>
             </div>
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/xkgjkklq" method="POST">
                 <div class="form-row">
-                    <input type="text" placeholder="Name" required>
-                    <input type="email" placeholder="Email" required>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="form-row">
-                    <input type="text" placeholder="Organization">
-                    <input type="text" placeholder="Phone">
+                    <input type="text" name="organization" placeholder="Organization">
+                    <input type="text" name="phone" placeholder="Phone">
                 </div>
                 <div class="form-row">
-                    <textarea placeholder="How can we help with your healthcare technology or infrastructure needs?" required></textarea>
+                    <textarea name="message" placeholder="How can we help with your healthcare technology or infrastructure needs?" required></textarea>
                 </div>
                 <button type="submit" class="submit-button">Submit Inquiry</button>
             </form>
+            <div id="form-status" style="margin-top: 20px; text-align: center; display: none;"></div>
         </div>
     </section>
 
@@ -248,11 +249,40 @@
                     <p class="copyright">© 2025 SABR Services · All Rights Reserved</p>
                 </div>
                 <div class="footer-contact">
-                    <p>rubiobruce885@gmail.com</p>
+                    <p>bruce@sabrvet.com</p>
                     <p>San Diego, CA</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Simple form submission notification script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.querySelector('.contact-form');
+            const formStatus = document.getElementById('form-status');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    // Uncomment this line to prevent form submission for testing
+                    // e.preventDefault();
+                    
+                    formStatus.textContent = "Sending your message...";
+                    formStatus.style.display = "block";
+                    formStatus.style.color = "#fff";
+                    
+                    // The form will be handled by Formspree
+                    // This is just for user feedback
+                    setTimeout(function() {
+                        if (!e.defaultPrevented) {
+                            // Only runs if form actually submitted
+                            formStatus.textContent = "Your message has been sent. We'll get back to you soon!";
+                            formStatus.style.color = "#4CAF50";
+                        }
+                    }, 1000);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
